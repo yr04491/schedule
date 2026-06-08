@@ -35,15 +35,11 @@ export default function SetupPage() {
       })
 
       const json = JSON.stringify(sub)
-      setSubscriptionJson(json)
+      // Base64に変換（{ } " などの記号を含まず、コピペで壊れない）
+      const encoded = btoa(json)
+      setSubscriptionJson(encoded)
 
-      await fetch('/api/push/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: json,
-      })
-
-      setStatus('✅ 完了！下のJSONをコピーしてVercelに追加してください')
+      setStatus('✅ 完了！下のコードをコピーしてVercelに追加してください')
     } catch (e: any) {
       setStatus('エラー: ' + e.message)
     }
@@ -106,7 +102,7 @@ export default function SetupPage() {
       {subscriptionJson && (
         <div>
           <div style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: 'var(--muted)', marginBottom: '8px' }}>
-            PUSH_SUBSCRIPTION の値（コピーしてVercelに追加）
+            PUSH_SUBSCRIPTION の値（このコードをコピーしてVercelに貼る）
           </div>
           <div style={{
             background: 'var(--surface-alt)', border: '1px solid var(--border)',
@@ -126,7 +122,7 @@ export default function SetupPage() {
               fontSize: '14px', fontWeight: 700, cursor: 'pointer',
             }}
           >
-            📋 JSONをコピー
+            📋 コードをコピー
           </button>
         </div>
       )}
