@@ -6,6 +6,7 @@ import { getDaySchedule, getCurrentBlockIndex } from '@/lib/schedule'
 import DayNavigator from '@/components/DayNavigator'
 import ScheduleBlockItem from '@/components/ScheduleBlock'
 import DetailModal from '@/components/DetailModal'
+import NotificationSetup from '@/components/NotificationSetup'
 
 export default function Home() {
   const [date, setDate] = useState(new Date())
@@ -45,6 +46,7 @@ export default function Home() {
   return (
     <div style={{ minHeight: '100dvh', background: 'var(--bg)', maxWidth: '480px', margin: '0 auto' }}>
       <DayNavigator date={date} onPrev={handlePrev} onNext={handleNext} />
+      <NotificationSetup />
 
       <div style={{ paddingBottom: '40px' }}>
         {blocks.map((block, i) => (
