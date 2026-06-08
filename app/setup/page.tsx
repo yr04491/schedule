@@ -56,6 +56,11 @@ export default function SetupPage() {
 
   return (
     <div style={{ padding: '24px 20px', maxWidth: '480px', margin: '0 auto', background: 'var(--bg)', minHeight: '100dvh' }}>
+      <a href="/" style={{
+        fontSize: '13px', color: 'var(--muted)', textDecoration: 'none',
+        display: 'inline-block', marginBottom: '16px',
+      }}>‹ スケジュールに戻る</a>
+
       <div style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: 'var(--muted)', marginBottom: '4px' }}>
         NOTIFICATION SETUP
       </div>

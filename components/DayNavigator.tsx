@@ -26,6 +26,16 @@ export default function DayNavigator({ date, onPrev, onNext }: Props) {
       background: 'var(--bg)',
       zIndex: 10,
     }}>
+      <a href="/setup" style={{
+        position: 'absolute',
+        top: '12px',
+        right: '12px',
+        fontSize: '18px',
+        textDecoration: 'none',
+        opacity: 0.5,
+        lineHeight: 1,
+      }}>⚙️</a>
+
       <button onClick={onPrev} style={{
         background: 'none',
         border: 'none',
